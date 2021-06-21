@@ -48,7 +48,6 @@ namespace redis_csharp
               .AddOptions()
               .Configure<Settings>(context.Configuration)
               .AddLogging();
-            services.AddHostedService<ProducerWorker>();
             services.AddHostedService<ConsumerWorker>();
           })
           ;

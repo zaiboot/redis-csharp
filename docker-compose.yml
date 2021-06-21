@@ -1,10 +1,17 @@
 version: '3'
 services:
-  app:
+  app_producer:
     build:
-        context: .
+        context: ./Producer
     depends_on:
       - redis
+
+  app-consumer:
+    build:
+        context: ./Consumer
+    depends_on:
+      - redis
+      - app_producer
 
   redis:
     container_name: redis
